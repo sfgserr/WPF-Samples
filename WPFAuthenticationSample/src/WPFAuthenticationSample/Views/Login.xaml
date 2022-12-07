@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="WPFAuthenticationSample.Views.Login"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:components="clr-namespace:WPFAuthenticationSample.Components"
+             xmlns:local="clr-namespace:WPFAuthenticationSample.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="FontSize" Value="20"/>
+
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FontSize" Value="20"/>
+
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+    </UserControl.Resources>
+    
+    <Grid>
+        <TextBox Style="{StaticResource TextBoxStyle}"
+                 Background="White"
+                 Width="280"
+                 Height="35"
+                 Margin="0,0,0,300"
+                 Text="{Binding Login}"/>
+
+        <components:BindablePasswordBox
+                 Password="{Binding Password, Mode=TwoWay}"
+                 Background="Transparent"
+                 Width="280"
+                 Height="35"
+                 Margin="0,0,0,100"/>
+
+
+
+        <Button Content="Sign In"
+                FontSize="20"
+                Style="{StaticResource ButtonStyle}"
+                Width="280"
+                Height="35"
+                Margin="0,100,0,0"
+                Command="{Binding LoginCommand}"
+                IsDefault="True"/>
+
+        <Button Content="Register"
+                Style="{StaticResource TextButtonStyle}"
+                Command="{Binding NavigateCommand}"
+                Width="50"
+                Height="25"
+                Margin="0,300,0,0">
+            
+        </Button>
+    </Grid>
+</UserControl>

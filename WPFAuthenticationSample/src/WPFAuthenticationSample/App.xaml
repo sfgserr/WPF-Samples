@@ -1,0 +1,52 @@
+﻿<Application x:Class="WPFAuthenticationSample.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WPFAuthenticationSample"
+             xmlns:viewModels="clr-namespace:WPFAuthenticationSample.ViewModels"
+             xmlns:views="clr-namespace:WPFAuthenticationSample.Views"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+
+        <Style x:Key="TextButtonStyle"
+               TargetType="{x:Type Button}">
+
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#4D90FA"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border BorderThickness="0,0,0,0.5"
+                                BorderBrush="{TemplateBinding Property=Foreground}">
+                            
+                            <TextBlock Margin="5,10,0,0"
+                                       Text="{TemplateBinding Property=Content}"
+                                       Foreground="{TemplateBinding Property=Foreground}"/>
+                            
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="#0D6BFF"/>
+                </Trigger>
+            </Style.Triggers>
+
+        </Style>
+
+        <DataTemplate DataType="{x:Type viewModels:LoginViewModel}">
+            <views:Login/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModels:HomeViewModel}">
+            <views:Home/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModels:RegisterViewModel}">
+            <views:Register/>
+        </DataTemplate>
+
+    </Application.Resources>
+</Application>
