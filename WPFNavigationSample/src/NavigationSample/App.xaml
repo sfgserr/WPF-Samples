@@ -1,0 +1,31 @@
+﻿<Application x:Class="NavigationSample.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:viewModels="clr-namespace:NavigationSample.ViewModels"
+             xmlns:views="clr-namespace:NavigationSample.Views"
+             xmlns:local="clr-namespace:NavigationSample"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="300,150,0,0"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+
+        <DataTemplate DataType="{x:Type viewModels:FirstViewModel}">
+            <views:FirstView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModels:SecondViewModel}">
+            <views:SecondView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModels:ThirdViewModel}">
+            <views:ThirdView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModels:FourthViewModel}">
+            <views:FourthView/>
+        </DataTemplate>
+    </Application.Resources>
+</Application>
